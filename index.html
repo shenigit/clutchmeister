@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zu clutchende Games bis Andi Pro uns zeigt wie es geht</title>
+    <style>
+        body {
+            background-image: url(https://4kwallpapers.com/images/walls/thumbs_2t/11129.png); 
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #fff; 
+            opacity: 0; 
+            transition: opacity 3s; 
+        }
+        #container {
+            background-color: rgba(0, 0, 0, 0.5); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #counter {
+            font-size: 72px;
+            margin: 20px;
+        }
+        #decrementButton {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #decrementButton:hover {
+            background-color: #0056b3;
+        }
+        #resetButton {
+            margin-top: auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #resetButton:hover {
+            background-color: #ff0000;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body onload="document.body.classList.add('loaded')"> 
+    <div id="container">
+        <h1>Zu clutchende Games bis Andi Pro uns zeigt wie es geht</h1>
+        <div id="counter">100</div>
+        <button id="decrementButton" onclick="decrementCounter()">Ein weiterer Sieg von unserem Macher</button>
+    </div>
+
+    <button id="resetButton" onclick="resetCounter()">Zurücksetzen auf 100</button>
+
+    <script>
+   
+        function loadCounter() {
+            var counterElement = document.getElementById('counter');
+            var savedCount = localStorage.getItem('counter');
+
+            if (savedCount !== null) {
+                counterElement.textContent = savedCount;
+            }
+        }
+
+    
+        function saveCounter(count) {
+            localStorage.setItem('counter', count);
+        }
+
+     
+        function decrementCounter() {
+            var counterElement = document.getElementById('counter');
+            var currentCount = parseInt(counterElement.textContent);
+
+            if (currentCount > 0) {
+                currentCount--;
+                counterElement.textContent = currentCount;
+                saveCounter(currentCount);
+            }
+        }
+
+       
+        function resetCounter() {
+            var counterElement = document.getElementById('counter');
+            counterElement.textContent = '100';
+            saveCounter(100);
+        }
+
+
+        loadCounter();
+    </script>
+</body>
+</html>
