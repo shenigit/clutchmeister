@@ -71,43 +71,46 @@
 
     <button id="resetButton" onclick="resetCounter()">Zurücksetzen auf 100</button>
 
-    <script>
-       
-        function loadCounter() {
-            var counterElement = document.getElementById('counter');
-            var savedCount = localStorage.getItem('counter');
+ <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 
-            if (savedCount !== null) {
-                counterElement.textContent = savedCount;
-            }
-        }
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBZNnCTUv0Fdu54TEAbRWj6-jkTz-jTFD4",
+            authDomain: "clutchmeister-777a6.firebaseapp.com",
+            projectId: "clutchmeister-777a6",
+            storageBucket: "clutchmeister-777a6.appspot.com",
+            messagingSenderId: "12818487666",
+            appId: "1:12818487666:web:52824d05f46a79a9d2e5eb"
+        };
 
-   
-        function saveCounter(count) {
-            localStorage.setItem('counter', count);
-        }
+        
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
 
-     
-        function decrementCounter() {
-            var counterElement = document.getElementById('counter');
-            var currentCount = parseInt(counterElement.textContent);
+        const counterElement = document.getElementById('counter');
+        const counterRef = ref(database, 'counter');
+
+        
+        onValue(counterRef, (snapshot) => {
+            const count = snapshot.val();
+            counterElement.textContent = count;
+        });
+
+        const decrementButton = document.getElementById('decrementButton');
+        decrementButton.addEventListener('click', () => {
+            const currentCount = parseInt(counterElement.textContent);
 
             if (currentCount > 0) {
-                currentCount--;
-                counterElement.textContent = currentCount;
-                saveCounter(currentCount);
+                const newCount = currentCount - 1;
+                counterElement.textContent = newCount;
+
+                
+                set(counterRef, newCount);
             }
-        }
-
-    
-        function resetCounter() {
-            var counterElement = document.getElementById('counter');
-            counterElement.textContent = '100';
-            saveCounter(100);
-        }
-
-     
-        loadCounter();
+        });
     </script>
 </body>
 </html>
