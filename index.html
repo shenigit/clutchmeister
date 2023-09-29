@@ -65,7 +65,7 @@ f    <style>
 
         // Initialize Firebase
   	const app = initializeApp(firebaseConfig);
-        var database = firebase.database();
+        var database = app.database();
 
         var counterElement = document.getElementById('counter');
         var counterRef = database.ref('counter');
