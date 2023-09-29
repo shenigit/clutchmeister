@@ -8,19 +8,17 @@
     <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js"></script>
     <style>
         body {
-            background-image: url(https://4kwallpapers.com/images/walls/thumbs_2t/11129.png); 
-            background-size: cover;
-            background-position: center;
+            background-color: black;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
-            color: #fff; 
-            opacity: 0; 
-            transition: opacity 3s; 
+            color: #fff;
+            opacity: 0;
+            transition: opacity 3s;
         }
         #container {
-            background-color: rgba(0, 0, 0, 0.5); 
+            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -44,36 +42,21 @@
         #decrementButton:hover {
             background-color: #0056b3;
         }
-        #resetButton {
-            margin-top: auto;
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #f00;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #resetButton:hover {
-            background-color: #ff0000;
-        }
-        
         body.loaded {
             opacity: 1;
         }
     </style>
 </head>
-<body onload="document.body.classList.add('loaded')"> 
+<body onload="document.body.classList.add('loaded')">
     <div id="container">
         <h1>Zu clutchende Games bis Andi Pro uns zeigt wie es geht</h1>
         <div id="counter">100</div>
-        <button id="decrementButton" onclick="decrementCounter()">Ein weiterer Sieg von unserem Macher</button>
+        <button id="decrementButton">Ein weiterer Sieg von unserem Macher</button>
     </div>
+
     <script>
-        
         var firebaseConfig = {
-            apiKey: "AIzaSyBZNnCTUv0Fdu54TEAbRWj6-jkTz-jTFD4",
+			apiKey: "AIzaSyBZNnCTUv0Fdu54TEAbRWj6-jkTz-jTFD4",
             authDomain: "clutchmeister-777a6.firebaseapp.com",
             projectId: "clutchmeister-777a6",
             storageBucket: "clutchmeister-777a6.appspot.com",
@@ -81,8 +64,7 @@
             appId: "1:12818487666:web:7b527aa4ad04f9f7d2e5eb"
         };
 
-       
- firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
         var database = firebase.database();
 
         var counterElement = document.getElementById('counter');
