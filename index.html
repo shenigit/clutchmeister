@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zu clutchende Games bis Andi Pro uns zeigt wie es geht</title>
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"></script>
-    <style>
+f    <style>
         body {
             background-color: black;
             font-family: Arial, sans-serif;
@@ -54,14 +52,15 @@
         <button id="decrementButton">Ein weiterer Sieg von unserem Macher</button>
     </div>
 
-    <script>
-        var firebaseConfig = {
-	  apiKey: "AIzaSyBZNnCTUv0Fdu54TEAbRWj6-jkTz-jTFD4",
-    authDomain: "clutchmeister-777a6.firebaseapp.com",
-    projectId: "clutchmeister-777a6",
-    storageBucket: "clutchmeister-777a6.appspot.com",
-    messagingSenderId: "12818487666",
-    appId: "1:12818487666:web:7b527aa4ad04f9f7d2e5eb"
+    <script type="module">
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+	var firebaseConfig = {
+		apiKey: "AIzaSyBZNnCTUv0Fdu54TEAbRWj6-jkTz-jTFD4",
+    		authDomain: "clutchmeister-777a6.firebaseapp.com",
+    		projectId: "clutchmeister-777a6",
+    		storageBucket: "clutchmeister-777a6.appspot.com",
+    		messagingSenderId: "12818487666",
+    		appId: "1:12818487666:web:7b527aa4ad04f9f7d2e5eb"
         };
 
         firebase.initializeApp(firebaseConfig);
