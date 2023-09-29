@@ -66,17 +66,17 @@
     <div id="container">
         <h1>Zu clutchende Games bis Andi Pro uns zeigt wie es geht</h1>
         <div id="counter">100</div>
-        <button id="decrementButton" onclick="decrementCounter()">Ein weiterer Sieg von unserem Macher</button>
+        <button id="decrementButton">Ein weiterer Sieg von unserem Macher</button>
     </div>
 
-    <button id="resetButton" onclick="resetCounter()">Zurücksetzen auf 100</button>
+    <button id="resetButton">Zurücksetzen auf 100</button>
 
- <script type="module">
-        
+    <script type="module">
+      
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
         import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 
-        
+   
         const firebaseConfig = {
             apiKey: "AIzaSyBZNnCTUv0Fdu54TEAbRWj6-jkTz-jTFD4",
             authDomain: "clutchmeister-777a6.firebaseapp.com",
@@ -86,13 +86,13 @@
             appId: "1:12818487666:web:52824d05f46a79a9d2e5eb"
         };
 
-        
+      
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
         const counterElement = document.getElementById('counter');
         const counterRef = ref(database, 'counter');
-
+        
         
         onValue(counterRef, (snapshot) => {
             const count = snapshot.val();
@@ -107,9 +107,18 @@
                 const newCount = currentCount - 1;
                 counterElement.textContent = newCount;
 
-                
+               
                 set(counterRef, newCount);
             }
+        });
+
+        const resetButton = document.getElementById('resetButton');
+        resetButton.addEventListener('click', () => {
+            const newCount = 100;
+            counterElement.textContent = newCount;
+
+            
+            set(counterRef, newCount);
         });
     </script>
 </body>
