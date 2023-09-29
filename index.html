@@ -82,10 +82,9 @@
         };
 
        
-       firebase.initializeApp(firebaseConfig);
+   firebase.initializeApp(firebaseConfig);
         var database = firebase.database();
 
-       
         var counterElement = document.getElementById('counter');
         var counterRef = database.ref('counter');
         counterRef.on('value', function(snapshot) {
@@ -93,19 +92,16 @@
             counterElement.textContent = count;
         });
 
-        
-        function decrementCounter() {
-            var counterElement = document.getElementById('counter');
+        var decrementButton = document.getElementById('decrementButton');
+        decrementButton.addEventListener('click', function() {
             var currentCount = parseInt(counterElement.textContent);
 
             if (currentCount > 0) {
                 currentCount--;
                 counterElement.textContent = currentCount;
-
-              
                 counterRef.set(currentCount);
             }
-        }
+        });
     </script>
 </body>
 </html>
