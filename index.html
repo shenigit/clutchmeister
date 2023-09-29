@@ -63,7 +63,8 @@ f    <style>
     		appId: "1:12818487666:web:7b527aa4ad04f9f7d2e5eb"
         };
 
-        firebase.initializeApp(firebaseConfig);
+        // Initialize Firebase
+  	const app = initializeApp(firebaseConfig);
         var database = firebase.database();
 
         var counterElement = document.getElementById('counter');
