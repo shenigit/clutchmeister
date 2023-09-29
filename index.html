@@ -108,7 +108,14 @@
                 counterElement.textContent = newCount;
 
                 
+                
                 set(counterRef, newCount);
+                  .then(() => {
+                console.log("Counter erfolgreich aktualisiert.");
+            })
+            .catch((error) => {
+                console.error("Fehler beim Aktualisieren des Counters:", error);
+            });
             }
         });
 
